@@ -11,6 +11,10 @@ class ConcertsController < ApplicationController
   end
 
   def create
+    @concert = Concert.new(concert_params)
+
+    @concert.save
+    redirect_to root_path
   end
 
   def edit
@@ -19,8 +23,17 @@ class ConcertsController < ApplicationController
   end
 
   def update
+    @concert = Concert.find(params[:id])
+    @concert.update(concert_params)
+
+    redirect_to root_path
   end
 
   def destroy
+  end
+
+  private
+  def concert_params
+    params.require(:concert).permit(:name, :duration, :audience, :event_date, :group_id)
   end
 end

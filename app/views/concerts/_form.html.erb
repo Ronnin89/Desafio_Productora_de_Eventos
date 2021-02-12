@@ -1,4 +1,4 @@
-<%= from_with(model: concert, local: true) do |f| %>
+<%= form_with(model: concert, local: true) do |f| %>
 
     <div>
         <%= f.label 'Nombre' %>
@@ -22,7 +22,7 @@
 
     <div>
         <%= f.label 'Grupo' %>
-        <%= f.select :group_id, option_from_collection_for_select(@groups), prompt 'Elije un Grupo' %>
+        <%= f.select :group_id, options_from_collection_for_select(@groups, :id, :name), prompt: "elije un grupo" %>
     </div>
 
     <%= f.submit %>
