@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2021_02_12_135422) do
     t.string "name"
     t.time "duration"
     t.integer "audience"
-    t.date "event_date"
+    t.datetime "event_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "group_id"

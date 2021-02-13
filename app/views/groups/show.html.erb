@@ -1,2 +1,39 @@
-<h1>Groups#show</h1>
-<p>Find me in app/views/groups/show.html.erb</p>
+<h1>Informacion del Grupo "<%= @group.name %>"</h1>
+<hr>
+<h3>Informacion del mes actual</h3>
+<table>
+    <thead>
+        <th>Cantidad de conciertos</th>
+        <th>Ultimo concierto</th>
+        <th>Nombre del ultimo concierto</th>
+    </thead>
+    <tbody>
+        <td style="text-align:center;"><%= @last_month_concert.count %></td>
+        <td style="text-align:center;"><%= @last_month_concert[0].event_date.strftime('%Y-%B-%A') %></td>
+        <td style="text-align:center;"><%= @last_month_concert[0].name if @last_month_concert %></td>
+    </tbody>
+</table>
+<hr>
+<h3>Informacion del concierto con mas asitencia</h3>
+<table>
+    <thead>
+        <th>Nombre del concierto</th>
+        <th>Asistencia del concierto</th>
+    </thead>
+    <tbody>
+        <td style="text-align:center;"><%= @max_audience[0].name %></td> 
+        <td style="text-align:center;"><%= @max_audience[0].audience %></td> 
+    </tbody>
+</table>
+<hr>
+<h3>Informacion del concierto con mayor duracion</h3>
+<table>
+    <thead>
+        <th>nombre del concierto</th>
+        <th>duracion del concierto</th>
+    </thead>
+    <tbody>
+        <td style="text-align:center;"><%= @max_duration[0].name %></td>
+        <td style="text-align:center;"><%= @max_duration[0].duration.strftime('%H:%M') %></td>
+    </tbody>
+</table>

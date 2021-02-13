@@ -14,6 +14,7 @@
         <% @groups.each do |group| %>
         <tr>
             <td>
+                <%= link_to "Ver", group %>
                 <%= link_to "Borrar", group, method: :delete, data: {confirm: 'estas seguro?'} %>
             </td>
             <td><%= group.name %></td>
@@ -30,3 +31,5 @@
         <% end %>
     </tbody>
 </table>
+
+<%= link_to 'Crear concierto', new_concert_path %>

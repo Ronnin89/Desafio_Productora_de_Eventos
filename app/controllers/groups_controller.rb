@@ -4,6 +4,10 @@ class GroupsController < ApplicationController
   end
 
   def show
+    @group = Group.find(params[:id])
+    @last_month_concert = Concert.last_concerts(@group)
+    @max_audience = Concert.max_assistance(@group)
+    @max_duration = Concert.max_time(@group)
   end
 
   def new
