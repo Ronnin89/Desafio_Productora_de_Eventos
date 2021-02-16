@@ -5,7 +5,7 @@ class Concert < ApplicationRecord
 
     scope :max_assistance, -> (group) { where(group_id: group.id).order(audience: :desc).includes(:group)}
 
-    scope :max_time, -> (group) { where(group_id: group.id).order(duration: :desc)}
+    scope :max_time, -> (group) { where(group_id: group.id).order(duration: :desc).includes(:group)}
 
     # def self.last_concerts(group)
     #     where(group_id: group.id, event_date: Time.now.beginning_of_month..Time.now.end_of_month).order(event_date: :desc)
